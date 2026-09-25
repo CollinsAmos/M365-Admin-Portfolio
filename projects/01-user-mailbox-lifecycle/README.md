@@ -20,7 +20,7 @@ To demonstrate the end-to-end process of user creation, license-based service pr
 - Navigated to `admin.microsoft.com` → **Users** → **Active users** → **Add a user**.
 - Entered basic information and set the UPN to `user1@contoso.onmicrosoft.com`.
 
-![Add User](./screenshots/01-add-user.png)
+![Add User](Account creation.webp)
 
 ### 2. Assign License
 - Assigned an **E5 license** to trigger automatic mailbox provisioning.
