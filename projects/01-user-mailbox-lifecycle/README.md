@@ -1,36 +1,38 @@
+# Project 1: User & Mailbox Lifecycle (Exchange Online / Entra ID)
 
-### 🖼️ Step 3: Add Your Screenshots
+## 📌 Scenario
+Onboard a new starter, "Jane Doe," by provisioning her user account, assigning the appropriate Microsoft 365 license, and ensuring her Exchange Online mailbox is correctly configured before her start date.
 
-For the images to show up, you need to create a `screenshots` folder inside `01-user-mailbox-lifecycle`.
+## 🎯 Objective
+To demonstrate the end-to-end process of user creation, license-based service provisioning, and verification of mailbox creation using both the graphical admin centers and PowerShell.
 
-1.  Go back to your repository main page.
-2.  Navigate into `projects` → `01-user-mailbox-lifecycle`.
-3.  Click **"Add file"** → **"Upload files"**.
-4.  Drag and drop your 3 redacted screenshots.
-5.  **Important:** Rename your files before uploading (or after) to match exactly:
-    - `01-add-user.png`
-    - `02-assign-license.png`
-    - `03-verify-mailbox.png`
-6.  Commit the changes.
+## 🛠️ Tools Used
+- Microsoft 365 Admin Center
+- Microsoft Entra ID (Azure AD)
+- Exchange Admin Center (EAC)
+- Exchange Online PowerShell (EXO V2 Module)
 
-### ✅ Step 4: Test the Link
+---
 
-1.  Go back to your main repository page (`M365-Admin-Portfolio`).
-2.  Click the **"View Project"** link in your table.
-3.  If everything is correct, it should open your new project page with the images showing.
+## 🚀 Step-by-Step Implementation
 
-### ⚠️ Troubleshooting if the Link Breaks
+### 1. Create the User Account
+- Navigated to `admin.microsoft.com` → **Users** → **Active users** → **Add a user**.
+- Entered basic information and set the UPN to `user1@contoso.onmicrosoft.com`.
 
-If you click "View Project" and get a **404 error**, it means GitHub can't find that file path. 
+![Add User](./screenshots/01-add-user.png)
 
-The most common cause is that your folders are named differently. If you previously created a folder named `Exchange Online` with a space, you have two options:
+### 2. Assign License
+- Assigned an **E5 license** to trigger automatic mailbox provisioning.
 
-- **Option A (Fix the link):** Change the link in your main `README.md` to:
-  `./Exchange%20Online/Entra%20ID/README.md`
-- **Option B (Rename the folder - Recommended):** 
-  1. Click into the `Exchange Online` folder.
-  2. Click the settings/edit icon next to the folder name.
-  3. Rename it to `01-user-mailbox-lifecycle`.
-  4. Move the folder into a new folder called `projects`.
+![Assign License](./screenshots/02-assign-license.png)
 
-Let me know if the link works or if you get a 404, and I'll help you debug the exact path!
+### 3. Verify Mailbox Creation in EAC
+- Confirmed the mailbox appears in **Recipients** → **Mailboxes**.
+
+![Verify Mailbox](./screenshots/03-verify-mailbox.png)
+
+### 4. Verify via PowerShell
+```powershell
+Connect-ExchangeOnline
+Get-Mailbox -Identity user1@contoso.onmicrosoft.com
